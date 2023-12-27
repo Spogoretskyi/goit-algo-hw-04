@@ -10,11 +10,18 @@ def generate_unique_numbers(n):
 
 
 # Timsort сортування
-def timsort(array):
+def tim_sort_sorted(array):
     return sorted(array)
 
-# Вимір часу виконання функції
-execution_time = timeit.timeit(timsort(generate_unique_numbers(1000)), number = 1)
 
-# Виведення результатів
-print(f"Час виконання: {execution_time} секунд")
+def tim_sort_sort(array):
+    return array.sort()
+
+
+numbers = generate_unique_numbers(1000)
+
+execution_time = timeit.timeit(lambda: tim_sort_sorted(numbers), number = 1)
+print(f"Час виконання 'tim_sort_sorted': {execution_time} секунд")
+
+execution_time = timeit.timeit(lambda: tim_sort_sort(numbers), number = 1)
+print(f"Час виконання 'tim_sort_sort': {execution_time} секунд")
